@@ -1,0 +1,62 @@
+#banner {
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    text-align: center;
+    background-color: teal
+}
+
+#footer {
+    text-align: center;
+    background-color: teal;
+}
+
+#footer h4 {
+    color: aliceblue;
+    padding: 5px;
+}
+
+#banner h1 {
+    color: aliceblue
+}
+
+#banner h3 {
+    color: aliceblue
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    background-color: #175f5f;
+}
+
+#menuItem {
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+    color: aliceblue;
+}
+
+#about {
+    display: flex;
+    flex-direction: row;
+}
+
+#aboutMe {
+    flex: 1;
+    margin: 5px;
+    text-align: right;
+    padding: 50px;
+}
+
+#aboutMeName {
+    text-align: left;
+    padding: 10px;
+    font-size: 60px;
+}
+
+#aboutMeText {
+    text-align: left;
+    padding: 5px;
+    font-size: 22px;
+}
