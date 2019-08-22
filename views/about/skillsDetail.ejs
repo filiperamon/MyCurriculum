@@ -6,7 +6,14 @@
 
 <div id="skills">
 
-    <div id="aboutMeName"> Empresa X</div>
+    <div id="aboutMeName"> <%- company.name %> </div>
+    <div id="aboutMeText"> <%- company.titleFunction %> </div>
+    <div id="skillsMore"> <%- company.skills %> </div>
+    <div id="skillsMore"> 
+        <a href="<%- company.site %>" > <%- company.site %> </a>
+    </div>
+    <br />
+    <div id="skillsDescription"> <%- company.descricao %> </div>
 
 </div>
 
