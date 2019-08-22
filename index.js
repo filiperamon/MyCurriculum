@@ -1,6 +1,9 @@
 const express    = require('express')
 const bodyParser = require('body-parser')
 const path       = require('path')
+const sqlite    = require('sqlite')
+
+const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
 const app  = express()
 const port = process.env.PORT || 3300
@@ -19,9 +22,33 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/about/skills', (req, res) => {
-    res.render('about/skills')
+app.get('/about/skills', async(req, res) => {
+    const db = await dbConnection
+    const companys = db.all('select * from company;')
+
+    res.render('about/skills', {
+        companys
+    })
 })
+
+app.get('/about/skillsDetail', (req, res) => {
+    res.render('about/skillsDetail')
+})
+
+//Initi DataBase
+const init = async() => {
+    const db = await dbConnection
+    await db.run('create table if not exists company(id INTEGER PRIMARY KEY, name TEXT, titleFunction TEXT, skills TEXT, dtInit TEXT, dtEnd TEXT);')
+
+    const company = 'Grupo Marquise'
+    const titleFunction = 'FullStack Developer'
+    const skills = '#JavaScript | #NodeJs | #ReactNative | #MongoDB | #Angular | #Java | #Git'
+    const dtInit = '2016'
+    const dtFim = 'Actual'
+    //await db.run(`insert into company(name, titleFunction, skills, dtInit, dtEnd) values ('${company}', '${titleFunction}', '${skills}', '${dtInit}', '${dtFim}');`)
+}
+
+init()
 
 //Add port and start server
 app.listen(port, (err) => {
