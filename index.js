@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.get('/about/skills', (req, res) => {
+    res.render('about/skills')
+})
+
 //Add port and start server
 app.listen(port, (err) => {
     if(err)
