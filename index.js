@@ -24,10 +24,11 @@ app.get('/', (req, res) => {
 
 app.get('/about/skills', async(req, res) => {
     const db = await dbConnection
-    const companys = db.all('select * from company;')
+    const companies = await db.all('select * from company;')
 
+    console.log(companies)
     res.render('about/skills', {
-        companys
+        companies
     })
 })
 
@@ -40,11 +41,11 @@ const init = async() => {
     const db = await dbConnection
     await db.run('create table if not exists company(id INTEGER PRIMARY KEY, name TEXT, titleFunction TEXT, skills TEXT, dtInit TEXT, dtEnd TEXT);')
 
-    const company = 'Grupo Marquise'
+    const company = 'Três Corações Alimentos S/A'
     const titleFunction = 'FullStack Developer'
-    const skills = '#JavaScript | #NodeJs | #ReactNative | #MongoDB | #Angular | #Java | #Git'
-    const dtInit = '2016'
-    const dtFim = 'Actual'
+    const skills = '#JavaScript | #ActionScript | #Java | #Android | #C# | #Git'
+    const dtInit = '2012'
+    const dtFim = '2015'
     //await db.run(`insert into company(name, titleFunction, skills, dtInit, dtEnd) values ('${company}', '${titleFunction}', '${skills}', '${dtInit}', '${dtFim}');`)
 }
 

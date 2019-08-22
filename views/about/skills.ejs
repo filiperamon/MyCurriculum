@@ -9,33 +9,17 @@
     <div id="aboutMeName"> Experiences and Skills</div>
 
     <ul id="skillsList">
+        <% companies.forEach( company => { %>
         <li>
-            <div id="skillsLine">FullStack Developer at Grupo Marquise ( 2016 - Actual )</div>
+            <div id="skillsLine"><%- company.titleFunction %> at <%- company.name %> ( <%- company.dtInit %> - <%- company.dtEnd %> )</div>
             <div id="skillsSubLine">
-                <i>#JavaScript | #NodeJs | #ReactNative | #MongoDB | #Angular | #Java | #Git</i>
+                <i><%- company.skills %></i>
             </div>
             <div id="skillsMore">
                 <a href="/about/skillsDetail">more...</a>
             </div>
         </li>
-        <li>
-            <div id="skillsLine">Mobile Developer at GreAt - UFC ( 2015 )</div>
-            <div id="skillsSubLine">
-                <i>#Java | #Android | #Git | #Gerrit | #Jenks</i>
-            </div>
-            <div id="skillsMore">
-                <a href="/about/skillsDetail">more...</a>
-            </div>
-        </li>
-        <li>
-            <div id="skillsLine">FullStack Developer at Três Corações Alimentos S/A ( 2012 - 2014 )</div>
-            <div id="skillsSubLine">
-                <i>#Java | #Android | #C# | #ActionScript | #Flex</i>
-            </div>
-            <div id="skillsMore">
-                <a href="/about/skillsDetail">more...</a>
-            </div>
-        </li>
+        <% }) %>
     </ul>
 </div>
 
