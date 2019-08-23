@@ -40,18 +40,19 @@ app.get('/about/skillsDetail/:id', async(req, res) => {
     })
 })
 
+app.get('/about/contact', async(req, res) => {
+    const db = await dbConnection
+    const employee = await db.get(`select * from employee where id = 1`)
+    res.render('about/contact', {
+        employee
+    })
+})
+
 //Initi DataBase
 const init = async() => {
     const db = await dbConnection
     await db.run('create table if not exists employee(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, email TEXT, linkedin TEXT, Skype TEXT, phone TEXT, birth TEXT, github TEXT);')
     await db.run('create table if not exists company(id INTEGER PRIMARY KEY, name TEXT, titleFunction TEXT, skills TEXT, dtInit TEXT, dtEnd TEXT);')
-    
-    //await db.run('insert into employee (id INTEGER PRIMARY KEY, name, age, email, linkedin, Skype, phone, birth, github) values ();')
-    //await db.run('update company set descricao = "I am Full StackDeveloper,and Analystin all business company products.Weare work in the Financial System, Customer Service, Human Resources and Truck tracking System where we process a lot of data and analytics dashboards. The latest project involved: Teamwork skills, TDD, JavaScript and its Frameworks, Java and its Frameworks, Node.js, Express, React, Html5, AngularJs, Oracle, JUnit, Git and a lot of technologies Front-end, Back-end and Mobile Developer. Too we are making customizations in the Oracle E-Business Suite 12." where id = 1 ')
-    //await db.run('update company set descricao = "The Mobile Developer of the LG Eletronics. Development andrefinecode,bug \ncorrection and tests on cell phones middleware platforms to Country Adaptation process. All skills we used like: Android, Java, Git, JUnit, C++" where id = 2 ')
-    //await db.run('update company set descricao = "I was leading of mobile solutions and Analyst in all business company products. \nWe were work as focused in the System Sales Force where we process a lot of data and analytics \ndashboards. All skills we used like Android, Java, C#, Git and SQL" where id = 3 ')
-
-    //await db.run(`insert into company(name, titleFunction, skills, dtInit, dtEnd) values ('${company}', '${titleFunction}', '${skills}', '${dtInit}', '${dtFim}');`)
 }
 
 init()
