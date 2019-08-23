@@ -26,20 +26,23 @@
 
 #menu {
     display: flex;
-    flex-direction: row;
     background-color: #175f5f;
+    position: relative;
 }
 
 #menuItem {
     flex: 1;
-    margin: 5px;
     text-align: center;
     color: aliceblue;
+    align-self: center;
+    padding: 15px;
+    margin: 0px;
+    transition: all .5s ease;
 }
 
-#menuItem a {
-    text-decoration: none;
-    color: aliceblue;
+#menu #menuItem:hover {
+    background-color: #194b4b;
+    cursor: pointer;
 }
 
 #about {
@@ -115,9 +118,7 @@
 
 .button {
     display: inline-block;
-    border-radius: 4px;
     background-color:  #FFFFFF;
-    border: none;
     text-align: center;
     font-size: 18px;
     padding: 10px;
@@ -125,6 +126,7 @@
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    border-radius: 4px;
     border: 1px solid #008CBA;
   }
   
