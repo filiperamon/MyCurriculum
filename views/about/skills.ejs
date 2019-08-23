@@ -16,10 +16,8 @@
                 <i><%- company.skills %></i>
             </div>
             <div id="skillsMore">
-                <button class="button" style="vertical-align:middle"><span>
-                        <a href="/about/skillsDetail/<%- company.id %>">More </a> 
-                    </span>
-                </button>
+                <button class="button" onclick="window.location.href='/about/skillsDetail/<%- company.id %>'" style="vertical-align:middle"><span>More 
+                     </span></button>
             </div>
         </li>
         <% }) %>
