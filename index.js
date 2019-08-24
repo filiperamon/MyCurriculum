@@ -15,12 +15,11 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 //Map public with default path
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'public/script')))
+app.use(express.static(path.join(__dirname, 'public'))) 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/script/util.js',function(req,res){
-    res.sendFile(path.join(__dirname + '/script/util.js')); 
+    res.sendFile(path.join(__dirname + 'public/script/util.js')); 
 });
 
 app.get('/', (req, res) => {
