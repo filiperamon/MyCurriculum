@@ -9,14 +9,19 @@ const app  = express()
 const port = process.env.PORT || 3300
 
 //Maps views for views folder
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views')) 
 
 //Set EJS with view engine
 app.set('view engine', 'ejs')
 
 //Map public with default path
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public/script')))
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.get('/script/util.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/script/util.js')); 
+});
 
 app.get('/', (req, res) => {
     res.render('home')
