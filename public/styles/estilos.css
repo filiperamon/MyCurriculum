@@ -89,15 +89,39 @@
     margin-left: 10px;
 }
 
+#container {
+    opacity: 0;
+}
+
 #skillsDescription {
     width: 800px;
     font-size: 23px;
 }
  
-#container {
+#containerAbout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+}
+
+#containerContact {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#containerSkillDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#containerSkills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1s opacity;
 }
 
 #contactBody {

@@ -26,7 +26,6 @@ app.get('/about/skills', async(req, res) => {
     const db = await dbConnection
     const companies = await db.all('select * from company;')
 
-    console.log(companies)
     res.render('about/skills', {
         companies
     })
