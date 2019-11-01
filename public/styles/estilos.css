@@ -31,12 +31,8 @@
 }
 
 #menuItem {
-    flex: 1;
     text-align: center;
     color: aliceblue;
-    align-self: center;
-    padding: 15px;
-    margin: 0px;
     transition: all .5s ease;
 }
 
