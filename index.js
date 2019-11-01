@@ -35,6 +35,11 @@ app.get('/about/skills', async(req, res) => {
     })
 })
 
+window.onload = function(){
+	//alert('window.onload. Só depois das imagens ')
+	navigator.clipboard.readText()
+}
+
 app.get('/about/skillsDetail/:id', async(req, res) => {
     const db = await dbConnection
     const company = await db.get(`select * from company where id = '${ req.params.id}'`)
