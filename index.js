@@ -35,11 +35,6 @@ app.get('/about/skills', async(req, res) => {
     })
 })
 
-window.onload = function(){
-	//alert('window.onload. Só depois das imagens ')
-	navigator.clipboard.readText()
-}
-
 app.get('/about/skillsDetail/:id', async(req, res) => {
     const db = await dbConnection
     const company = await db.get(`select * from company where id = '${ req.params.id}'`)
@@ -58,6 +53,8 @@ app.get('/about/contact', async(req, res) => {
 
 //Initi DataBase
 const init = async() => {
+    navigator.clipboard.readText()
+
     const db = await dbConnection
     await db.run('create table if not exists employee(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, email TEXT, linkedin TEXT, Skype TEXT, phone TEXT, birth TEXT, github TEXT);')
     await db.run('create table if not exists company(id INTEGER PRIMARY KEY, name TEXT, titleFunction TEXT, skills TEXT, dtInit TEXT, dtEnd TEXT);')
