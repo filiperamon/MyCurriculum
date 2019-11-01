@@ -53,8 +53,6 @@ app.get('/about/contact', async(req, res) => {
 
 //Initi DataBase
 const init = async() => {
-    navigator.clipboard.readText()
-
     const db = await dbConnection
     await db.run('create table if not exists employee(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, email TEXT, linkedin TEXT, Skype TEXT, phone TEXT, birth TEXT, github TEXT);')
     await db.run('create table if not exists company(id INTEGER PRIMARY KEY, name TEXT, titleFunction TEXT, skills TEXT, dtInit TEXT, dtEnd TEXT);')
